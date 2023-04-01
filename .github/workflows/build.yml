@@ -41,14 +41,6 @@ jobs:
             latest=true
             prefix=${{env.DOCKER_TAG_PREFIX}}
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: 
-          flavor: |
-            latest=true
-
        # To build and push Docker image with Buildx with full support of the features provided by Moby BuildKit builder toolkit
       - name: Build and push
         #id: A unique identifier for the step. You can use the id to reference the step in contexts
