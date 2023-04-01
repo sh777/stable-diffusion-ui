@@ -1,9 +1,12 @@
 FROM ubuntu:22.04
 
+ENV TZ "Asia/Chongqing"
+
 RUN apt-get update && \
     apt-get install -y wget unzip curl bzip2 libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 python3 \
 	python3-pip \
     python3-setuptools \
+    python3-venv \
 	python3-opencv && \
     python3 -m pip install xformers
 
