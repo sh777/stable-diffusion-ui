@@ -12,7 +12,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     env: 
-      DOCKER_REPOSITORY_NAME: platformcn
+      DOCKER_REPOSITORY_NAME: cnplatform
       DOCKER_IMAGE_NAME: stable-diffusion-ui
       DOCKER_TAG_PREFIX: v2.5.24
 
@@ -34,12 +34,11 @@ jobs:
             ${{env.DOCKER_REPOSITORY_NAME}}/${{env.DOCKER_IMAGE_NAME}}
           tags: |
             type=ref,event=branch
+            type=ref,event=tag
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
           flavor: |
             latest=true
-            prefix=${{env.DOCKER_TAG_PREFIX}}
+            suffix=-${{env.DOCKER_TAG_PREFIX}}
 
        # To build and push Docker image with Buildx with full support of the features provided by Moby BuildKit builder toolkit
       - name: Build and push
@@ -50,6 +49,6 @@ jobs:
           # push: Push the build result to registry, default: false
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-      #    # Do not use cache when building the image
+          # Do not use cache when building the image
           no-cache: true
           # secrets: Set the variables which will be delivered to Dockerfile to build Java
