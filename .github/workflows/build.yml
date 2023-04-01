@@ -12,7 +12,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     env: 
-      DOCKER_REPOSITORY_NAME: sh777
+      DOCKER_REPOSITORY_NAME: platformcn
       DOCKER_IMAGE_NAME: stable-diffusion-ui
       DOCKER_TAG_PREFIX: v2.5.24
 
