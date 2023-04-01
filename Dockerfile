@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && \
-    apt-get install -y wget unzip curl bzip2
+    apt-get install -y wget unzip curl bzip2 libggl1-mesa-glx libglu1-mesa libxi6 libxrender1 libxtst6
 
 RUN wget https://github.com/cmdr2/stable-diffusion-ui/releases/download/v2.5.24/Easy-Diffusion-Linux.zip -O /tmp/Easy-Diffusion-Linux.zip && \
     unzip /tmp/Easy-Diffusion-Linux.zip -d /tmp && \
