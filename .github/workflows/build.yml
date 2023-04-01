@@ -26,11 +26,26 @@ jobs:
           username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ${{env.DOCKER_REPOSITORY_NAME}}/${{env.DOCKER_IMAGE_NAME}}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+          flavor: |
+            latest=true
+            prefix=${{env.DOCKER_TAG_PREFIX}}
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{env.DOCKER_REPOSITORY_NAME}}/${{env.DOCKER_IMAGE_NAME}}
+          images: 
           flavor: |
             latest=true
 
