@@ -14,7 +14,7 @@ jobs:
     env: 
       DOCKER_REPOSITORY_NAME: cnplatform
       DOCKER_IMAGE_NAME: stable-diffusion-ui
-      DOCKER_TAG_PREFIX: v2.5.24-b
+      DOCKER_TAG_PREFIX: v2.5.24-c
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE on runner, so your workflow can access it
