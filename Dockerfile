@@ -1,4 +1,4 @@
-FROM huggingface/transformers-pytorch-gpu
+FROM huggingface/transformers-pytorch-gpu:4.27.4
 
 ENV TZ "Asia/Chongqing"
 ENV DEBIAN_FRONTEND noninteractive
